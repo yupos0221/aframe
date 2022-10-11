@@ -87,9 +87,12 @@
     .then( stream => {
       _logStream(stream);
       localStream = stream;
+      console.log("get media stream");
       joinRoom(stream);
+      
     })
     .catch ( err => {
+      console.log("get media stream");
       console.error('getUserMedia ERROR:', err );
     })
   }
@@ -108,9 +111,11 @@
       //meshRoom = peer.joinRoom(roomName, {mode: 'mesh', stream: localStream});
       if (stream) {
         meshRoom = peer.joinRoom(roomName, {mode: 'mesh', stream: stream});
+        console.log('get media');
       }
       else {
         meshRoom = peer.joinRoom(roomName, {mode: 'mesh'});
+        console.log('false media');
       }
       meshRoom.on('open', function() {
         console.log('joined the room:' + roomName);
@@ -169,8 +174,8 @@
       },
       onClick: function (evt) {
         hideWaitMessage();
-        joinRoom(null);
-        //startMediaAndJoinRoom();
+        // joinRoom(null);
+        startMediaAndJoinRoom();
       }
     });
 

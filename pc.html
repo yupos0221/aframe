@@ -204,8 +204,8 @@
   // --- video elements ---
   function attachVideo(id, stream) {
     let video = addRemoteVideoElement(id);
-    playVideo(video, stream);
-    video.volume = 1.0;
+    playVideo(video, stream, 1.0);
+    
   }
 
   function detachVideo(id) {
@@ -395,7 +395,7 @@
     getDeviceStream(options)
     .then(function (stream) { // success
       localStream = stream;
-      playVideo(localVideo, stream);
+      playVideo(localVideo, stream, 0.0);
       updateButtons();
     }).catch(function (error) { // error
       console.error('getUserMedia error:', error);
@@ -439,7 +439,7 @@
     }
   }
 
-  function playVideo(element, stream) {
+  function playVideo(element, stream, volume) {
     if ('srcObject' in element) {
       element.srcObject = stream;
     }
@@ -447,7 +447,7 @@
       element.src = window.URL.createObjectURL(stream);
     }
     element.play();
-    element.volume = 0;
+    element.volume = volume;
   }
 
   function pauseVideo(element) {

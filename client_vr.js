@@ -32,15 +32,22 @@ function getRoomFromURL() {
 }
 
 let localStream = null;
-function startMediaAndJoinRoom() {
+let displayStream = null;
+// let newStream = null;
+async function startMediaAndJoinRoom() {
+  displayStream = await navigator.mediaDevices.getDisplayMedia({video:true});
   const mediaConstraints = {video: false, audio: true};
   navigator.mediaDevices.getUserMedia(mediaConstraints)
   .then( stream => {
     // _logStream(stream);
-    localStream = stream;
-    console.log("get media stream");
-    joinRoom(stream);
+    // localStream = stream;
+    // console.log("get media stream");
+    // joinRoom(stream);
     
+    const [displayVideoTrack] = displayStream.getVideoTracks();
+    const [userAudioTrack] = stream.getAudioTracks();
+    const newStream = new MediaStream([displayVideoTrack, userAudioTrack]);
+    joinRoom(newStream);
   })
   .catch ( err => {
     console.log("get media stream");
@@ -71,9 +78,9 @@ function joinRoom(stream) {
     meshRoom.on('open', function() {
       console.log('joined the room:' + roomName);
     });
-    meshRoom.on('stream', function(stream) {
+    meshRoom.on('stream', function(remoteStream) {
       let remoteId = stream.peerId;
-      attachVideo(remoteId, stream);
+      attachVideo(remoteId, remoteStream);
     });
     meshRoom.on('peerLeave', function(peerId) {
       detachVideo(peerId);

@@ -14,7 +14,7 @@ RTCPeerConnection = window.RTCPeerConnection || window.webkitRTCPeerConnection |
 RTCSessionDescription = window.RTCSessionDescription || window.webkitRTCSessionDescription || window.mozRTCSessionDescription;
 
 // ----- use skyway room ----
-let myApiKey = '4ff0a85b-4015-4e8b-94f6-4fab24c759e0'; //null; // set your API key
+let myApiKey = '8e431df1-2764-499b-8904-9ab0b8d06d0d'; //null; // set your API key
 let peer = null;
 let meshRoom = null;
 const defaultRoomName = '_oculusgo_test_room';
@@ -23,10 +23,14 @@ function getApiKey() {
     let key = document.getElementById('api_key_text').value;
     return key;
 }
+function setApiKey() {
+    document.getElementById('api_key_text').value = myApiKey;
+}
 
 function setInitialRoomName() {
     let rnd = '0000' + Math.floor(Math.random() * 10000);
-    let roomname = 'go' + rnd.slice( -4 );
+    // let roomname = 'go' + rnd.slice( -4 );
+    let roomname = 'go7777';
     document.getElementById('roomname_text').value = roomname;
 }
 
@@ -87,12 +91,14 @@ function joinRoom() {
         meshRoom = peer.joinRoom(roomName, {mode: 'mesh', stream: localStream});
         meshRoom.on('open', function() {
         console.log('joined the room:' + roomName);
+        
         showGoUrl(roomName);
         updateButtons();
         });
         meshRoom.on('stream', function(stream) {
         let remoteId = stream.peerId;
         attachVideo(remoteId, stream);
+        meshRoom.send('VR');
         });
         meshRoom.on('peerLeave', function(peerId) {
         detachVideo(peerId);
@@ -444,6 +450,7 @@ function disableElement(id) {
 
 // ----- init ------
 updateButtons();
-getApiKeyFromURL();
+// getApiKeyFromURL();
+setApiKey()
 setInitialRoomName();
 getRoomFromURL();

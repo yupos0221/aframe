@@ -73,11 +73,19 @@ function joinRoom(stream) {
     });
     meshRoom.on('stream', function(stream) {
       let remoteId = stream.peerId;
+      console.log('peerId'+remoteId)
+      videoState = stream.getVideoTracks()[0].readyState;
+      console.log('state: ' + videoState);
       attachVideo(remoteId, stream);
     });
     meshRoom.on('peerLeave', function(peerId) {
       detachVideo(peerId);
     });
+    // meshRoom.on('data', function(data) {
+    //   if(remoteId == data.string && data.data == 'VRcamera'){
+    //     attachVideo(remoteId, remoteStream);  
+    //   }
+    // });
   });
 
   // -- kick to play in iOS 11 Safari --

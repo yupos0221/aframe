@@ -41,6 +41,10 @@ async function startMediaAndJoinRoom() {
   .then( stream => {
     // _logStream(stream);
     localStream = stream;
+    let canvas = document.querySelector('canvas');
+    let dummyStream = canvas.captureStream(0.1);
+    const track = dummyStream.getVideoTracks()[0];
+    stream.addTrack(track);
     console.log("get media stream");
     joinRoom(stream);
     
@@ -56,6 +60,7 @@ async function startMediaAndJoinRoom() {
   })
 }
 
+let remoteStreams = [];
 function joinRoom(stream) {
   let apiKey = getApiKeyFromURL() || myApiKey;
   if ((! apiKey) || (apiKey === '')) {
@@ -81,11 +86,27 @@ function joinRoom(stream) {
     });
     meshRoom.on('stream', function(remoteStream) {
       let remoteId = remoteStream.peerId;
+      videoState = remoteStream.getVideoTracks()[0].readyState;
+      console.log('state: ' + videoState);
       attachVideo(remoteId, remoteStream);
+      // remoteStreams.push(remoteStream);
+      // console.log("remoteStreams length: " + remoteStreams.length)
+      // console.log("remoteStreams label: " + remoteStream.label)
     });
-    meshRoom.on('peerLeave', function(peerId) {
-      detachVideo(peerId);
-    });
+    // meshRoom.on('peerLeave', function(peerId) {
+    //   detachVideo(peerId);
+    // });
+    // meshRoom.on('data', function(data) {
+    //   let property = 'camera' + data.data;
+    //   console.log('get data: ' + data.data.toString() + ' ' + property + ' '+ (property == 'cameraVR'));
+    //   for(const element of remoteStreams){
+    //     console.log( element.peerId + ' ' + data.string)
+    //     if(element.peerId == data.string && property == 'cameraVR'){
+    //       attachVideo(element.peerId, element);  
+    //     }
+    //   }
+      
+    // });
   });
 
   // -- kick to play in iOS 11 Safari --

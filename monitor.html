@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>monitor</title>
+  <meta name="descrip viewtion" content="monitor view">
+  <style src="./style.css"></style>
+  <!-- NG
+  <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+   -->
+  <!-- OK
+  <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
+  // 0.6.1, 0.7.0, 0.7.1 OK (0.7.2, 0.7.5 NO exist)
+  -->
+  <script type="text/javascript" src="https://cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
+  <script src="./client.js"></script>
+</head>
+
+<body>
+  <div id="wait_massage">Please wait for loading ...</div>
+  <video id="video1" class="video" autoplay playsinline loop></video>
+</body>
+<script type="text/javascript">
+    document.getElementById('video1').onclick = function(){
+        joinRoom();
+    };
+</script>
+</html>

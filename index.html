@@ -8,22 +8,21 @@
 
         GitHub ... <a target="_blank" href="https://github.com/mganeko/aframe">https://github.com/mganeko/aframe</a>
         
-        <h3>サンプル操作手順</h3> 
+        <h3>サンプルURL</h3> 
         
         <a target="_blank" href="https://yupos0221.github.io/aframe/">GitHub pages (https://yupos0221.github.io/aframe/)</a> で試すことができます。<br/>
         RICOH THETA Vと Oculus Go（または他のWebVR対応のブラウザ)が必要です。
         
         <h4>配信側</h4>
         <ul>
-          <li>PC に RICOH THETA V をUSBで接続、Liveモードに設定</li>
-          <li>PCのChromeブラウザで、 <a target="_blank" href="https://yupos0221.github.io/aframe/pc.html">https://yupos0221.github.io/aframe/pc.html</a> を開く
+          <li>PC ブラウザ
+            <ul><li><a target="_blank" href="https://yupos0221.github.io/aframe/pc.html">https://yupos0221.github.io/aframe/pc.html</a></li></ul>
+            <ul>ローカルにサーバーを建てる場合：<a target="_blank" href="http:///localhost:8080/pc.html">http://localhost:8080/pc.html</a></ul>
             <ul><li>Roomがランダムに割り振られます。変更することも可能です</li></ul>
           </li>
           <li>[Get Devices]ボタンをクリックすると、利用可能な Videoデバイス(カメラ)、Audioデバイス(マイク)のリストを取得します
             <ul>
               <li>カメラ、マイクへのアクセスを聞かれるので、許可してください</li>
-              <li>THETA V が見つかれば、自動的に選択されます</li>
-              <li>THETA V を接続していても検出できない場合は、Chromeを一旦終了して、再度起動して見てください</li>
             </ul>
           </li>
           <li>[Start Video] ボタンをクリックしてください
@@ -32,22 +31,24 @@
           <li>[Connect] ボタンをクリックしてください
             <ul>
               <li>SkyWay に接続され、指定されたRoomに参加します</li>
-              <li>自分の映像の下に、Oculus Go で接続するためのURLが表示されます</li>
-              <li>このURLを、Oculus Go のブラウザ（あるいは、他のWebVR 対応のブラウザ）で開くと映像を見ることができます</li>
+              <li>自分の映像の下に接続するためのURLが表示されます</li>
+              <li>このURLを、WebVR 対応のブラウザで開くと映像を見ることができます</li>
             </ul>
           </li>
           <br />
           <li>配信を停止する場合には [Disconnect] → [Stop Video] の順にボタンをクリックしてください</li>
         </ul>
 
-        <h4>視聴側 (Oculus Go)</h4>
+        <h4>視聴側 (WebVR 対応のブラウザ)</h4>
         <ul>
-          <li>Oculus Go のブラウザ（あるいは、他のWebVR 対応のブラウザ）を起動してください</li>
+          <li>WebVR 対応のブラウザを起動してください</li>
           <li>配信側で表示されたURLを、ブラウザでアクセスします
             <ul>
               <li>
-                あらかじめ <a target="_blank" href="https://yupos0221.github.io/aframe/go.html?room=">https://yupos0221.github.io/aframe/go.html?room=</a> までをブックマークに入れておき、最後にroom名だけ追加すると手間が少なくなるのでお勧めです
+                あらかじめ <a target="_blank" href="https://yupos0221.github.io/aframe/vr.html?room=">https://yupos0221.github.io/aframe/vr.html?room=</a> までをブックマークに入れておき、最後にroom名だけ追加すると手間が少なくなるのでお勧めです
               </li>
+              <li>ローカルにサーバーを建てる場合：<a target="_blank" href="http:///localhost:8080/vr.html?room=">http://localhost:8080/vr.html?room=</a></li>
+              
               <li>
                 または <a target="_blank" href="https://yupos0221.github.io/aframe/g.html">https://yupos0221.github.io/aframe/g.html</a> を経由してroom名を入力後、[送信]ボタンをクリックすることも可能です
               </li>
@@ -68,75 +69,6 @@
           <br />
           <li>360度モードを抜けるには コントローラの[戻る]ボタンを押します</li>
           <li>Skywayの接続を切る処理は未実装です。リロードするか、他のページに移動してください</li>
-        </ul>
-        
-        <h3>How to use sample</h3> 
-        
-        Please try on <a target="_blank" href="https://yupos0221.github.io/aframe/">GitHub pages (https://yupos0221.github.io/aframe/)</a><br/>
-        You need RICOH THETA V and Oculus Go (or other WebVR ready browser).
-        
-        <h4>Stream 360 realtime video from PC</h4>
-        <ul>
-          <li>Connect RICOH THETA V to your PC with USB, then start as Live mode.</li>
-          <li>Open with desktop Chrome: <a target="_blank" href="https://yupos0221.github.io/aframe/pc.html">https://yupos0221.github.io/aframe/pc.html</a>
-            <ul><li>Room name will be decided by random. You can modify room name if you want.</li></ul>
-          </li>
-          <li>Click [Get Devices] button, then list of video/audio devices will be made. 
-            <ul>
-              <li>Please allow access to camera / microphone.</li>
-              <li>THETA V will be selected if exists.</li>
-              <li>If it failed to detect THETA V, pleaset quit and restart Chrome.</li>
-            </ul>
-          </li>
-          <li>Click [Start Video] button.
-            <ul><li>Video / Audio will be captured, and shown in the browser.</li></ul>
-          </li>
-          <li>Click [Connect] Button.
-            <ul>
-              <li>Connect to SkyWay, then join to the specified room.</li>
-              <li>URL for Oculus Go will be appear below video.</li>
-              <li>Open this URL with Oculus Go browser (or other WebVR ready browser), to watch 360 realtime video. (See next section)</li>
-            </ul>
-          </li>
-          <br />
-          <li>To stop streaming, click [Disconnect] button, then click [Stop Video] button.</li>
-        </ul>
-
-        <h4>Watch 360 realtime video with Oculus Go</h4>
-        <ul>
-          <li>Start Oculus Go browser (or other WebVR ready browser).</li>
-          <li>Open the URL which shown in the streaming PC.
-            <ul>
-              <li>
-                It is better to bookmark <a target="_blank" href="https://yupos0221.github.io/aframe/go.html?room=">https://yupos0221.github.io/aframe/go.html?room=</a> in advance. Then add room name at the end of URL.
-              </li>
-              <li>
-                Or, open <a target="_blank" href="https://yupos0221.github.io/aframe/g.html">https://yupos0221.github.io/aframe/g.html</a> and type room name, then submit.
-              </li>
-            </ul>
-          </li>
-          <li>Loading will take a while.
-              <ul><li>When A-FRAME is ready, a message will appear in the center of browser window.</li></ul>
-          </li>
-          <li>Click the browser windows (point and trigger Oculus Go controller).
-            <ul>
-              <li>Connect to SkyWay, then join to the specified room.</li>
-              <li>360 realtime video form the PC will be played in Oculus Go Browser.</li>
-            </ul>
-          </li>
-          <li>Click VR mode button at the right bottom corner (point and trigger Oculus Go controller), then enter 360 VR mode.
-            <ul><li>You can look around with Oculus Go.</li></ul>
-          </li>
-          <br />
-          <li>To exit 360 VR mode, push [back] button of Oculus Go controller.</li>
-          <li>To disconnect from Skyway, please reload or move to other page.</li>
-        </ul>
-     
-        <h3>Source code / ソーコード</h3>
-        GitHub ... <a target="_blank" href="https://github.com/mganeko/aframe">https://github.com/mganeko/aframe</a>
-        <ul>
-          <li><a target="_blank" href="https://github.com/mganeko/aframe/blob/master/pc.html">pc.html</a> ... Streaming 360 video, with Desktop Chrome and RICOH THETA V</li>
-          <li><a target="_blank" href="https://github.com/mganeko/aframe/blob/master/go.html">go.html</a> ... Watching 360 video, with Oculus Go or other WebVR ready Browsers</li>
         </ul>
 
         <h3>License / ライセンス</h3>

@@ -3,8 +3,8 @@
 
 <head>
   <meta charset="utf-8">
-  <title>360Go Skyway</title>
-  <meta name="description" content="360 Video — A-Frame">
+  <title>VR</title>
+  <meta name="descrip viewtion" content="VR view">
   <!-- NG
   <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
    -->
@@ -16,6 +16,7 @@
   <script type="text/javascript" src="https://cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
   <script src="./client.js"></script>
   <script src="./vr_view.js"></script>
+  <script src="./vr_controller.js"></script>
 </head>
 
 <body>
@@ -23,6 +24,8 @@
   <a-scene>
     <a-assets>
       <video id="video1" autoplay loop crossorigin="anonymous" playsinline webkit-playsinline></video>
+      <a-entity laser-controls="hand: left" raycaster="objects: .collidable; far: 5" vr-controller></a-entity>
+      <a-entity laser-controls="hand: right" raycaster="objects: .collidable; far: 5" vr-controller></a-entity>
     </a-assets>
     <a-videosphere src="#video1" rotation="0 180 0"
       play-on-window-click

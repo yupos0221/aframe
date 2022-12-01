@@ -24,8 +24,8 @@
   <a-scene>
     <a-assets>
       <video id="video1" autoplay loop crossorigin="anonymous" playsinline webkit-playsinline></video>
-      <a-entity id="ctlL" laser-controls="hand: left" raycaster="objects: .collidable; far: 5"></a-entity>
-      <a-entity id="ctlR" laser-controls="hand: right" raycaster="objects: .collidable; far: 5"></a-entity>
+      <a-entity id="ctlL" laser-controls="hand: left" raycaster="objects: .collidable; far: 5" vr-controller></a-entity>
+      <a-entity id="ctlR" laser-controls="hand: right" raycaster="objects: .collidable; far: 5" vr-controller></a-entity>
     </a-assets>
     <a-videosphere src="#video1" rotation="0 180 0"
       play-on-window-click
@@ -33,6 +33,7 @@
     </a-videosphere>
 
     <a-camera user-height="0" wasd-controls-enabled="false" arrow-key-rotation>
+      <a-cursor></a-cursor>
       <!-- Text element for display messaging.  Hide once video is playing. -->
       <a-entity id="msg" position="0 -0.3 -1.5" text="align:center; 
               width:3;

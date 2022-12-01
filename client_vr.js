@@ -86,16 +86,16 @@ function joinRoom(stream) {
     });
     meshRoom.on('stream', function(remoteStream) {
       let remoteId = remoteStream.peerId;
-      videoState = remoteStream.getVideoTracks()[0].readyState;
-      console.log('state: ' + videoState);
+      // videoState = remoteStream.getVideoTracks()[0].readyState;
+      // console.log('state: ' + videoState);
       attachVideo(remoteId, remoteStream);
       // remoteStreams.push(remoteStream);
       // console.log("remoteStreams length: " + remoteStreams.length)
       // console.log("remoteStreams label: " + remoteStream.label)
     });
-    // meshRoom.on('peerLeave', function(peerId) {
-    //   detachVideo(peerId);
-    // });
+    meshRoom.on('peerLeave', function(peerId) {
+      detachVideo(peerId);
+    });
     // meshRoom.on('data', function(data) {
     //   let property = 'camera' + data.data;
     //   console.log('get data: ' + data.data.toString() + ' ' + property + ' '+ (property == 'cameraVR'));

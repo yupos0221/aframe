@@ -10,8 +10,8 @@ AFRAME.registerComponent('play-on-window-click', {
     },
     onClick: function (evt) {
       hideWaitMessage();
-      // joinRoom(null);
-      startMediaAndJoinRoom();
+      joinRoom(null);
+      // startMediaAndJoinRoom();
     }
 });
 

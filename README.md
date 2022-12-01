@@ -19,7 +19,7 @@
 * WebVR 対応のブラウザを起動してください
 * 配信側で表示されたURLを、ブラウザでアクセスします
   * あらかじめ [https://yupos0221.github.io/aframe/vr.html?room=](https://yupos0221.github.io/aframe/vr.html?room=) までをブックマークに入れておき、最後にroom名だけ追加すると手間が少なくなるのでお勧めです
-  *　PCのブラウザで見る場合は[https://yupos0221.github.io/aframe/go.html?room=](https://yupos0221.github.io/aframe/go.html?room=)
+  * PCのブラウザで見る場合は[https://yupos0221.github.io/aframe/go.html?room=](https://yupos0221.github.io/aframe/go.html?room=)
 * しばらくロードの時間がかかります
   * A-FRAMEの準備ができたら 中央にメッセージが表示されます
 * 画面をクリックしてください（Oculus Goのコントローラーでトリガーを引く）

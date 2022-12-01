@@ -41,11 +41,11 @@ async function startMediaAndJoinRoom() {
   .then( stream => {
     // _logStream(stream);
     localStream = stream;
-    let canvas = document.querySelector('canvas');
-    let dummyStream = canvas.captureStream(0.1);
-    const track = dummyStream.getVideoTracks()[0];
-    stream.addTrack(track);
-    console.log("get media stream");
+    // let canvas = document.querySelector('canvas');
+    // let dummyStream = canvas.captureStream(0.1);
+    // const track = dummyStream.getVideoTracks()[0];
+    // stream.addTrack(track);
+    // console.log("get media stream");
     joinRoom(stream);
     
     // const [displayVideoTrack] = displayStream.getVideoTracks();

@@ -1,7 +1,7 @@
 AFRAME.registerComponent('input-listener', {
   //Definition of right or left hand as a controller's property.
   schema: { 
-      hand: {　type: "string", default: "" }
+      hand: { type: "string", default: "" }
   },
   //Initialization
   init:function () {

@@ -26,13 +26,16 @@
       <video id="video1" autoplay loop crossorigin="anonymous" playsinline webkit-playsinline></video>
       <!-- <a-entity id="ctlL" laser-controls="hand: left" raycaster="objects: .collidable; far: 5" vr-controller></a-entity>
       <a-entity id="ctlR" laser-controls="hand: right" raycaster="objects: .collidable; far: 5" vr-controller></a-entity> -->
-      <a-entity id="ctlL" oculus-touch-controls="hand: left" ></a-entity>
-      <a-entity id="ctlR" oculus-touch-controls="hand: right"></a-entity>
+      <!-- <a-entity id="ctlL" oculus-touch-controls="hand: left" ></a-entity>
+      <a-entity id="ctlR" oculus-touch-controls="hand: right"></a-entity> -->
     </a-assets>
     <a-videosphere src="#video1" rotation="0 180 0"
       play-on-window-click
     >
     </a-videosphere>
+
+    <a-entity id="ctlL" laser-controls="hand: left"></a-entity>
+    <a-entity id="ctlR" laser-controls="hand: right"></a-entity>
 
     <a-camera user-height="0" wasd-controls-enabled="false" arrow-key-rotation>
       <!-- <a-cursor></a-cursor> -->
@@ -44,13 +47,13 @@
               value:Please click window to start 360 video streaming."
               hide-once-playing="#video1">
       </a-entity>
-      <a-text id="txt" value="No signal" position="0 0 -1" scale="0.4 0.4 0.4" align="center" color="black"></a-text>
-      <a-text id="txt2" value="controller test" position="0 -0.15 -1" scale="0.4 0.4 0.4" align="center" color="black"></a-text>
+      <!-- <a-text id="txt" value="No signal" position="0 0 -1" scale="0.4 0.4 0.4" align="center" color="black"></a-text>
+      <a-text id="txt2" value="controller test" position="0 -0.15 -1" scale="0.4 0.4 0.4" align="center" color="black"></a-text> -->
       <!-- <a-text id="my_text" value="***" position="0 -0.1 -2" scale="0.4 0.4 0.4" align="center" color="#ffffff"></a-text> -->
     </a-camera>   
     <a-entity camera look-controls position="0 1.6 0">
-      <!-- <a-text id="txt" value="" position="0 0 -1" scale="0.4 0.4 0.4" align="center" color="#000000"></a-text>
-      <a-text id="txt2" value="" position="0 -0.15 -1" scale="0.4 0.4 0.4" align="center" color="#000000"></a-text> -->
+      <a-text id="txt" value="" position="0 0 -1" scale="0.4 0.4 0.4" align="center" color="#000000"></a-text>
+      <a-text id="txt2" value="" position="0 -0.15 -1" scale="0.4 0.4 0.4" align="center" color="#000000"></a-text>
     </a-entity>
   </a-scene>
   <canvas width="100" height="100"></canvas>

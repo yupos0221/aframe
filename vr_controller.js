@@ -193,11 +193,46 @@ const ctlL = document.getElementById("ctlL");
 const ctlR = document.getElementById("ctlR");
 const txt = document.getElementById("txt");
 const txt2 = document.getElementById("txt2");
+const txt3 = document.getElementById("txt3");
+const txt4 = document.getElementById("txt4");
+
+const camera = document.getElementById("camera");
+
+// const peerd = new Peer({key: apiKey, debug: 1});
+let dataConnection = null;
 
 //Getting Position of Right Controller.
 const timer = setInterval(() => {     
   var p=ctlR.object3D.position;
   txt2.setAttribute("value","R-Position: "+ p.x.toFixed(2)+", "+p.y.toFixed(2)+", "+p.z.toFixed(2));
+  var y = camera.getAttribute("rotation").y;
+  console.log("camera rot: "+ y.toFixed(2));
+  txt3.setAttribute("value","camera rot: "+ y.toFixed(2));
+  if(remoteId==null){
+    console.log("remoteId is null");
+  }else{
+    if(dataConnection == null){
+      console.log("data connection: "+remoteId);
+      dataConnection = peer.connect(remoteId);
+      
+    }else{
+      
+      // dataConnection = peer.connect(peer.id);
+      // console.log(dataConnection);
+      // console.log(remoteId);
+      dataConnection = peer.connect(remoteId);
+      dataConnection.on("open", () => {
+        const data = {
+          name: "head pitch",
+          msg: y.toFixed(2),
+        };
+        dataConnection.send(data);
+        // console.log("data send");  
+      });
+      // console.log("data send");
+    }
+  }
+    
 }, 100);
 
 //Stick Moved

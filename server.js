@@ -57,6 +57,7 @@ function getRoomFromURL() {
     }
 }
 
+
 function showGoUrl(roomname) {
     const urlSpan = document.getElementById('oculus_url');
     const currentUrl = window.location.href;
@@ -105,8 +106,21 @@ function joinRoom() {
         });
     });
 
+    console.log("data connect!!");
+    peer.on("connection", (dataConnection) => {
+        // console.log("recieve!!");
+        messaging(dataConnection);
+      });
+
     // -- kick to play in iOS 11 Safari --
     //setTimeout(playAllRemoteVideo, 1000);
+}
+
+function messaging(dataConnection){
+    dataConnection.on("data", ({ name, msg }) => {
+        console.log(`${name}: ${msg}`);
+        // => 'SkyWay: Hello, World!'
+      });
 }
 
 function leaveRoom() {
@@ -454,3 +468,4 @@ updateButtons();
 setApiKey()
 setInitialRoomName();
 getRoomFromURL();
+

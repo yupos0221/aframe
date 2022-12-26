@@ -2,7 +2,9 @@
 let myApiKey = '8e431df1-2764-499b-8904-9ab0b8d06d0d'; //null; // set your API key
 let peer = null;
 let meshRoom = null;
+let remoteId = null;
 const defaultRoomName = '_oculusgo_test_room';
+// const camera = document.getElementById("camera");
 
 function getApiKey() {
   let key = document.getElementById('api_key_text').value;
@@ -68,8 +70,11 @@ function joinRoom(stream) {
     return;
   }
   const roomName = getRoomFromURL() || defaultRoomName;
-
+  if(peer!=null){
+    return;
+  }
   peer = new Peer({key: apiKey, debug: 1});
+  console.log("peer ID:"+ peer.id);
   peer.on('open',function() {
     console.log('--open--');
     //meshRoom = peer.joinRoom(roomName, {mode: 'mesh', stream: localStream});
@@ -85,7 +90,8 @@ function joinRoom(stream) {
       console.log('joined the room:' + roomName);
     });
     meshRoom.on('stream', function(remoteStream) {
-      let remoteId = remoteStream.peerId;
+      // let remoteId = remoteStream.peerId;
+      remoteId = remoteStream.peerId;
       // videoState = remoteStream.getVideoTracks()[0].readyState;
       // console.log('state: ' + videoState);
       attachVideo(remoteId, remoteStream);
@@ -107,7 +113,27 @@ function joinRoom(stream) {
     //   }
       
     // });
+    // const dataConnection = peer.connect(peer.id);
+    // var y = camera.getAttribute("rotation").y;
+    // dataConnection.on("open", () => {
+    //   const data = {
+    //     name: "head pitch",
+    //     msg: y.toFixed(2),
+    //   };
+    //   dataConnection.send(data);
+    // });
+
   });
+
+  // const dataConnection = peer.connect(peer.id);
+  // var y = camera.getAttribute("rotation").y;
+  // dataConnection.on("open", () => {
+  //   const data = {
+  //     name: "head pitch",
+  //     msg: y.toFixed(2),
+  //   };
+  //   dataConnection.send(data);
+  // });
 
   // -- kick to play in iOS 11 Safari --
   //setTimeout(playAllRemoteVideo, 1000);

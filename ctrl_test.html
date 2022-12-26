@@ -14,7 +14,7 @@
       <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4" shadow></a-plane>
       <a-entity id="ctlL" laser-controls="hand: left"></a-entity>
       <a-entity id="ctlR" laser-controls="hand: right"></a-entity>
-      <a-entity camera look-controls position="0 1.6 0">
+      <a-entity camera id="camera" look-controls position="0 1.6 0" rotation-reader>
         <a-text id="txt" value="" position="0 0 -1" scale="0.4 0.4 0.4" align="center" color="#000000"></a-text>
         <a-text id="txt2" value="" position="0 -0.15 -1" scale="0.4 0.4 0.4" align="center" color="#000000"></a-text>
       </a-entity>
@@ -26,10 +26,14 @@
       const txt = document.getElementById("txt");
       const txt2 = document.getElementById("txt2");
 
+      let camera = document.getElementById("camera");
+
       //Getting Position of Right Controller.
       const timer = setInterval(() => {     
         var p=ctlR.object3D.position;
         txt2.setAttribute("value","R-Position: "+ p.x.toFixed(2)+", "+p.y.toFixed(2)+", "+p.z.toFixed(2));
+        let y = camera.getAttribute("rotation").y;
+        console.log(y);
       }, 100);
 
       //Stick Moved
@@ -129,6 +133,27 @@
       ctlL.addEventListener('xbuttonup', function (event) {
         txt.setAttribute("value","Left X-button up");
       });
+
+    //   AFRAME.registerComponent('rotation-reader', {
+    //     tick: function () {
+    //         // `this.el` is the element.
+    //         // `object3D` is the three.js object.
+
+    //         // `rotation` is a three.js Euler using radians. `quaternion` also available.
+    //         console.log(this.el.object3D.rotation);
+
+    //         // `position` is a three.js Vector3.
+    //         console.log(this.el.object3D.position);
+    //     }
+    //     });
+
+    AFRAME.registerComponent('rotation-reader', {
+        tick: function () {
+            var rotation = this.el.getAttribute('rotation');
+            console.log(rotation);
+        }
+    });
+
     </script>
   </body>
 </html>

@@ -119,7 +119,14 @@ function joinRoom() {
 function messaging(dataConnection){
     dataConnection.on("data", ({ name, msg }) => {
         console.log(`${name}: ${msg}`);
+        var dest = new ROSLIB.Message({
+            data: parseFloat(msg)
+        });
+        headPosePub.publish(dest);
+        $('#main-contents').html('subscribe: ' + msg);
         // => 'SkyWay: Hello, World!'
+        
+        
       });
 }
 

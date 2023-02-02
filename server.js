@@ -62,7 +62,7 @@ function showGoUrl(roomname) {
     const urlSpan = document.getElementById('oculus_url');
     const currentUrl = window.location.href;
     const pos = currentUrl.lastIndexOf('/');
-    const goUrl = currentUrl.substr(0, pos + 1) + 'go.html?room=' + roomname;
+    const goUrl = currentUrl.substr(0, pos + 1) + 'vr.html?room=' + roomname;
     const a = '<a target="_blank" href="' + goUrl + '">' + goUrl + '</a>';
     urlSpan.innerHTML = a;
 

@@ -2,8 +2,8 @@ var headPosePub;
 
 $(function() {
     let ros = new ROSLIB.Ros({
-        url : 'wss://raspberrypi4.local:9090'
-        //url:'wss://192.168.11.111:9090'
+        //url : 'wss://raspberrypi4.local:9090'
+        url:'wss://192.168.11.111:9090'
     });
 
     ros.on('connection', function() {

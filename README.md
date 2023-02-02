@@ -3,6 +3,7 @@
 
 ## 配信側
 * PCのChromeブラウザで、 [https://yupos0221.github.io/aframe/pc.html](https://yupos0221.github.io/aframe/pc.html) を開く
+  * [https://yupos0221.github.io/aframe/raspberry.html](https://yupos0221.github.io/aframe/raspberry.html)
   * Roomがランダムに割り振られます。変更することも可能です
 * [Get Devices]ボタンをクリックすると、利用可能な Videoデバイス(カメラ)、Audioデバイス(マイク)のリストを取得します
   * カメラ、マイクへのアクセスを聞かれるので、許可してください

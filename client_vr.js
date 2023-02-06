@@ -92,6 +92,7 @@ function joinRoom(stream) {
     meshRoom.on('stream', function(remoteStream) {
       // let remoteId = remoteStream.peerId;
       remoteId = remoteStream.peerId;
+      console.log('remote ID: ' + remoteId);
       // videoState = remoteStream.getVideoTracks()[0].readyState;
       // console.log('state: ' + videoState);
       attachVideo(remoteId, remoteStream);

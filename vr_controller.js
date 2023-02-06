@@ -202,35 +202,33 @@ const camera = document.getElementById("camera");
 let dataConnection = null;
 
 //Getting Position of Right Controller.
-const timer = setInterval(() => {     
-  var p=ctlR.object3D.position;
-  txt2.setAttribute("value","R-Position: "+ p.x.toFixed(2)+", "+p.y.toFixed(2)+", "+p.z.toFixed(2));
-  var y = camera.getAttribute("rotation").y;
-  console.log("camera rot: "+ y.toFixed(2));
-  txt3.setAttribute("value","camera rot: "+ y.toFixed(2));
+const timer = setInterval(() => {
   if(remoteId==null){
     console.log("remoteId is null");
+  }else if(dataConnection == null){
+    dataConnection = peer.connect(remoteId);
   }else{
-    if(dataConnection == null){
-      console.log("data connection: "+remoteId);
-      dataConnection = peer.connect(remoteId);
-      
-    }else{
-      
-      // dataConnection = peer.connect(peer.id);
-      // console.log(dataConnection);
-      // console.log(remoteId);
-      dataConnection = peer.connect(remoteId);
-      dataConnection.on("open", () => {
-        const data = {
-          name: "head pitch",
-          msg: y.toFixed(2),
-        };
-        dataConnection.send(data);
-        // console.log("data send");  
-      });
-      // console.log("data send");
-    }
+    var p=ctlR.object3D.position;
+    txt2.setAttribute("value","R-Position: "+ p.x.toFixed(2)+", "+p.y.toFixed(2)+", "+p.z.toFixed(2));
+    var y = camera.getAttribute("rotation").y;
+    // console.log("camera rot: "+ y.toFixed(2));
+    txt3.setAttribute("value","camera rot: "+ y.toFixed(2));
+  
+    // dataConnection = peer.connect(remoteId);
+    // dataConnection.on("open", () => {
+    //   const data = {
+    //     name: "head pitch",
+    //     msg: y.toFixed(2),
+    //   };
+    //   dataConnection.send(data);
+    //   // console.log("data send");  
+    // });
+
+    const data = {
+      name: "head pitch",
+      msg: y.toFixed(2),
+    };
+    dataConnection.send(data);
   }
     
 }, 100);

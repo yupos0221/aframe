@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <title>360Send Skyway</title>
+ <script type="text/javascript" src="https://cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
+ <script>
+   function _assert(desc, v) {
+     if (v) {
+       return;
+     }
+     else {
+       let caller = _assert.caller || 'Top level';
+       console.error('ASSERT in %s, %s is :', caller, desc, v);
+     }
+   }
+  </script>
+</head>
+<body>
+  <h2>RICOH THETA V - SkyWay - Oculus Go</h2>
+  Room:<input id="roomname_text" type="text" size="32" value="test_go_room"></input>&nbsp;
+  SkyWay API Key:<input id="api_key_text" type="text" size="32"></input>
+  <br />
+  <button id="get_device_button" onclick="getDevice()">Get Devices</button>
+  Video:
+  <select id="videoSource"></select>
+  &nbsp;VideoSize:
+  <select id="camera_size_select">
+    <option value="default" selected="1">default</option>
+    <option value="VGA">VGA(640x480)</option>
+    <option value="THETA-V-FHD">THETA V(1920x960)</option>
+    <option value="THETA-V-4K">THETA V 4K(3840x1920)</option>
+    <option value="HD">HD(1280x720)</option>
+    <option value="FHD">FullHD(1920x1080)</option>
+  </select>
+  &nbsp;
+  Audio:
+  <select id="audioSource"></select>
+  <br />
+  <button id="start_video_button" type="button" onclick="startVideo();">Start Video</button>
+  <button id="stop_video_button" type="button" onclick="stopVideo();">Stop Video</button>
+  &nbsp;
+  <button id="join_room_button" type="button" onclick="joinRoom();">Connect</button>
+  <button  id="leave_room_button" type="button" onclick="leaveRoom();">Disconnect</button>
+  <div>
+    <video id="local_video" autoplay style="width: 320px; height: 180px; border: 1px solid black;"></video>
+  </div>
+  Please connect with Oculus Go Browser: <span id="oculus_url"></span><br /><br />
+  <span id="jumb_page"></span>
+  <div id="container">
+  </div>
+
+</body>
+<script src="./gateway_server.js"></script>
+</html>
+

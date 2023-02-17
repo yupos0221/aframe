@@ -91,15 +91,15 @@ function joinRoom() {
         console.log('--opened--  join room:' + roomName);
         meshRoom = peer.joinRoom(roomName, {mode: 'mesh', stream: localStream});
         meshRoom.on('open', function() {
-        console.log('joined the room:' + roomName);
-        
-        showGoUrl(roomName);
-        updateButtons();
+            console.log('joined the room:' + roomName);
+            
+            showGoUrl(roomName);
+            updateButtons();
         });
         meshRoom.on('stream', function(stream) {
-        let remoteId = stream.peerId;
-        attachVideo(remoteId, stream);
-        meshRoom.send('VR');
+            let remoteId = stream.peerId;
+            attachVideo(remoteId, stream);
+            meshRoom.send('VR');
         });
         meshRoom.on('peerLeave', function(peerId) {
         detachVideo(peerId);

@@ -23,19 +23,19 @@
   <div id="wait_massage">Please wait for loading ...</div>
   <a-scene>
     <a-assets>
-      <video id="video1" autoplay loop crossorigin="anonymous" playsinline webkit-playsinline width="1920" height="1080"></video>
+      <video id="video1" autoplay loop crossorigin="anonymous" playsinline webkit-playsinline></video>
       <!-- <a-entity id="ctlL" laser-controls="hand: left" raycaster="objects: .collidable; far: 5" vr-controller></a-entity>
       <a-entity id="ctlR" laser-controls="hand: right" raycaster="objects: .collidable; far: 5" vr-controller></a-entity> -->
       <!-- <a-entity id="ctlL" oculus-touch-controls="hand: left" ></a-entity>
       <a-entity id="ctlR" oculus-touch-controls="hand: right"></a-entity> -->
     </a-assets>
-    <!-- <a-videosphere src="#video1" rotation="0 180 0" geometry="thetaLength: 180"
+    <a-videosphere src="#video1" rotation="0 180 0" geometry="thetaLength: 180"
 
       play-on-window-click
-    > -->
-    <!-- </a-videosphere> -->
-    <a-entity geometry="primitive: sphere; theta-start: 10; thetaLength: 150; phi-length: 270; radius: 0.5; segmentsWidth: 64; segmentsHeight: 64" scale="1 1 -1" material="src: #video1; shader: flat" play-on-window-click>
-    </a-entity>
+    >
+    </a-videosphere>
+    <!-- <a-entity geometry="primitive: sphere; theta-start: 10; thetaLength: 150; phi-length: 270; radius: 0.5; segmentsWidth: 64; segmentsHeight: 64" scale="1 1 -1" material="src: #video1; shader: flat" play-on-window-click>
+    </a-entity> -->
 
     <a-entity id="ctlL" oculus-touch-controls="hand: left"></a-entity>
     <a-entity id="ctlR" oculus-touch-controls="hand: right"></a-entity>
